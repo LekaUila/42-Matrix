@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:04 by lflandri          #+#    #+#              #
-#    Updated: 2024/05/28 17:35:16 by lflandri         ###   ########.fr        #
+#    Updated: 2024/05/31 14:43:26 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ class Matrix:
             raise TypeError()
         if len(this.__list) <= key:
             raise IndexError()
-        return this.__list[key].copy()
+        return this.__list[key]
         
     def __setitem__(this, key, value):
         if type(key) != int or type(value) != Vector:

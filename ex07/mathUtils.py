@@ -1,21 +1,24 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    crossProduct.py                                    :+:      :+:    :+:    #
+#    mathUtils.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/31 13:10:41 by lflandri          #+#    #+#              #
-#    Updated: 2024/05/31 14:11:12 by lflandri         ###   ########.fr        #
+#    Created: 2024/05/31 12:06:19 by lflandri          #+#    #+#              #
+#    Updated: 2024/05/31 12:21:01 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-from class_d.Vector import Vector
+def sqrt(n):
+    i = 0
+    result = 1
+    if n == 0.0:
+        return 0.0
+    while i < 50:
+        result = (result + (n / result)) / 2
+        i+=1
+    return result
 
-def crossProduct(u, v):
-    if type(u) != Vector or type(v) != Vector:
-        raise TypeError()
-    if u.size() == v.size() == 3:
-        return Vector([u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]])
-    raise ArithmeticError("Need two vector of Size 3 to do crossProduct.")
-    
+def abs(flt):
+    return flt *-1 if flt < 0 else flt

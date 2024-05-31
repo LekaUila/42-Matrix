@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:04 by lflandri          #+#    #+#              #
-#    Updated: 2024/05/28 17:35:16 by lflandri         ###   ########.fr        #
+#    Updated: 2024/05/31 14:54:41 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ class Matrix:
             raise TypeError()
         if len(this.__list) <= key:
             raise IndexError()
-        return this.__list[key].copy()
+        return this.__list[key]
         
     def __setitem__(this, key, value):
         if type(key) != int or type(value) != Vector:
@@ -77,10 +77,32 @@ class Matrix:
         
             
     def __mul__(this, other):
-        cop = this.copy()
+        cop = 0
         if type(other) in acceptedType:
+            cop = this.copy()
             for i in range(len(this.__list)):
                 cop[i] = this.__list[i] * other
+                
+        elif type(other) == Vector:
+            cop = Vector(lenP=this.size()[1])
+            if this.size()[0] != other.size():
+                raise ArithmeticError("Can't multiply Matrix with Vector : Size don't match.")
+            for j in range(this.size()[1]):
+                nb = 0
+                for i in range(other.size()):
+                    nb += this[j][i] * other[i]
+                cop[j] = nb
+        elif type(other) == Matrix:
+            if this.size()[0] != other.size()[1]:
+                raise ArithmeticError(f"Can't multiply matrix : size error")
+            #max = this.size()[1] if this.size()[1] > this.size()[0] else this.size()[0]
+            cop = Matrix(lenth=this.size()[1], weith=other.size()[0])
+            for iMult in range(other.size()[0]):
+                for jMult in range(this.size()[1]):
+                    nb = 0
+                    for i in range(this.size()[0]):
+                        nb += this[jMult][i] * other[i][iMult]
+                    cop[jMult][iMult] = nb
         else :
             raise TypeError()
         return cop
@@ -107,4 +129,14 @@ class Matrix:
         for i in range(len(this.__list)):
             newMatrix[i] = this.__list[i].copy()
         return newMatrix
+    
+    def mulVec(this, vec):
+        if type(vec) != Vector:
+            raise TypeError()
+        return this * vec
+    
+    def mulMat(this, mat):
+        if type(mat) != Matrix:
+            raise TypeError()
+        return this * mat
         
