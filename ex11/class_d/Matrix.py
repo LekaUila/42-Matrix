@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:04 by lflandri          #+#    #+#              #
-#    Updated: 2024/06/04 15:16:24 by lflandri         ###   ########.fr        #
+#    Updated: 2024/06/04 15:21:10 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,6 +197,10 @@ class Matrix:
     def determinant(this):
         if not this.isSquare():
             raise ArithmeticError('Need a square matrix to find a determinant')
+        if len(this.__list) == 0:
+            return 0
+        if len(this.__list) == 1:
+            return this[0][0]
         if len(this.__list) == 2:
             return this[0][0] * this[1][1] - this[1][0] * this[0][1]
         determinant = 0
