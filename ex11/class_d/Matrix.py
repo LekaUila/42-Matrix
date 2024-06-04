@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:04 by lflandri          #+#    #+#              #
-#    Updated: 2024/06/04 14:42:08 by lflandri         ###   ########.fr        #
+#    Updated: 2024/06/04 15:16:24 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -193,4 +193,26 @@ class Matrix:
                         decX += 1
             ind += 1
         return newMatrix
+            
+    def determinant(this):
+        if not this.isSquare():
+            raise ArithmeticError('Need a square matrix to find a determinant')
+        if len(this.__list) == 2:
+            return this[0][0] * this[1][1] - this[1][0] * this[0][1]
+        determinant = 0
+        for i in range(len(this.__list)):
+            coef = this[0][i]
+            if i % 2 != 0:
+                coef = coef * -1
+            newMatrix = Matrix(lenth=len(this.__list) - 1, weith=len(this.__list) - 1)
+            skip = 0
+            for x in range(len(this.__list)):
+                if x != i:
+                    for y in range(1, len(this.__list)):
+                        newMatrix[y - 1][x - skip] = this[y][x]
+                else :
+                    skip = 1
+            determinant += coef * newMatrix.determinant()
+        return determinant
+                
             
