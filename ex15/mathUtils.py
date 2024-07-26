@@ -1,28 +1,24 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    main.py                                            :+:      :+:    :+:    #
+#    mathUtils.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/28 14:19:07 by lflandri          #+#    #+#              #
-#    Updated: 2024/07/17 15:52:47 by lflandri         ###   ########.fr        #
+#    Created: 2024/05/31 12:06:19 by lflandri          #+#    #+#              #
+#    Updated: 2024/05/31 12:21:01 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+def sqrt(n):
+    i = 0
+    result = 1
+    if n == 0.0:
+        return 0.0
+    while i < 50:
+        result = (result + (n / result)) / 2
+        i+=1
+    return result
 
-from class_d.Matrix import Matrix, Vector
-from projection import projection
-
-
-
-def __main__():
-
-    print(projection(70, 2, 1, 50))
-    return 0
-
-if __name__ == '__main__':
-    __main__()
-    
-    
-#command to set format for proj file :  py main.py | sed s/'|'/''/g | sed s/'\['/''/g | sed s/'\]'/''/g  > /proj
+def abs(flt):
+    return flt *-1 if flt < 0 else flt
