@@ -6,13 +6,13 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:07 by lflandri          #+#    #+#              #
-#    Updated: 2024/07/26 13:42:26 by lflandri         ###   ########.fr        #
+#    Updated: 2024/07/26 13:54:39 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 from class_d.Matrix import Matrix, Vector, Complex
-from projection import projection
+from mathUtils import sqrt
 
 
 
@@ -96,6 +96,14 @@ def __main__():
     # [0., 1., 10.]
     # [-7., -1., 18.]
     # [9., 3., -36.]
+    print(sqrt(Complex(3, 8)))
+    
+    print(Complex(3, 8) ** 0)
+    print(Complex(3, 8) ** 1)
+    print(Complex(3, 8) ** 2)
+    print(Complex(3, 8) ** 3)
+    
+    
     return 0
 
 if __name__ == '__main__':

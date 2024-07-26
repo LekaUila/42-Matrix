@@ -6,7 +6,7 @@
 #    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 15:53:22 by lflandri          #+#    #+#              #
-#    Updated: 2024/07/26 13:40:07 by lflandri         ###   ########.fr        #
+#    Updated: 2024/07/26 13:53:39 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,18 @@ class Complex :
             if denominateur.reel == 0:
                 raise ZeroDivisionError()
             return Complex(numerateur.reel / denominateur.reel, numerateur.imaginary / denominateur.reel)
+    def __pow__(this, other):
+        if type(other) != int or other < 0:
+            raise TypeError()
+        if other == 0:
+            return Complex(1, 0)
+        new = this.copy()
+        if other == 1:
+            return new
+        new = this.copy()
+        for i in range(other - 1):
+            new = new * this
+        return new
     
     def __eq__(this, other):
         if type(other) == int or type(other) == float:
