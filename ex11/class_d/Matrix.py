@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Matrix.py                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
+#    By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:04 by lflandri          #+#    #+#              #
-#    Updated: 2024/06/04 15:21:10 by lflandri         ###   ########.fr        #
+#    Updated: 2025/02/04 13:18:53 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -175,7 +175,8 @@ class Matrix:
         decX = 0
         while ind + decX < this.__list[0].size() and ind < len(this.__list):
             if newMatrix[ind][ind + decX] != 1 :
-                newMatrix[ind] = newMatrix[ind] * (1 / newMatrix[ind][ind + decX])
+                if newMatrix[ind][ind + decX] != 0. :
+                    newMatrix[ind] = newMatrix[ind] * (1 / newMatrix[ind][ind + decX])
             for i in range(ind + 1, len(this.__list)):
                 if newMatrix[i][ind + decX] != 0:
                     newMatrix[i] = newMatrix[i] + newMatrix[ind] * (- newMatrix[i][ind + decX])
