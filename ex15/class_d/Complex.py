@@ -3,12 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Complex.py                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
+#    By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 15:53:22 by lflandri          #+#    #+#              #
-#    Updated: 2024/07/26 13:53:39 by lflandri         ###   ########.fr        #
+#    Updated: 2025/02/04 22:02:03 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+from mathUtils import sqrt
 
 class Complex :
     
@@ -128,5 +130,7 @@ class Complex :
     def copy(this):
         return Complex(this.reel, this.imaginary)
     
+    def abs(this):
+        return sqrt(this.reel ** 2+ this.imaginary ** 2)
         
         

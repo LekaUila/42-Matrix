@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    mathUtils.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
+#    By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 12:06:19 by lflandri          #+#    #+#              #
-#    Updated: 2024/05/31 12:21:01 by lflandri         ###   ########.fr        #
+#    Updated: 2025/02/04 21:50:18 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,5 +20,11 @@ def sqrt(n):
         i+=1
     return result
 
-def abs(flt):
-    return flt *-1 if flt < 0 else flt
+def abs(nb):
+    try :
+        return nb.abs()
+    except :
+        try :
+            return nb *-1 if nb < 0 else nb
+        except :
+            raise ArithmeticError(f"Can't do abs of {nb}, make sur {type(nb)} has method 'abs'")

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    main.py                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lflandri <liam.flandrinck.58@gmail.com>    +#+  +:+       +#+         #
+#    By: lflandri <lflandri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 14:19:07 by lflandri          #+#    #+#              #
-#    Updated: 2024/07/26 13:54:39 by lflandri         ###   ########.fr        #
+#    Updated: 2025/02/04 22:04:13 by lflandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,12 @@ def __main__():
     print(u.mulVec(v))
     # [4.]
     # [-4.]
+    v = Vector([Complex(2, -5), Complex(-48, -5)])
+    print(v.normInf())
+    #48.25971404805462
+    v = Vector([-1.56, 0.6])
+    print(v.normInf())
+    #1.56
     u = Matrix([
     [1., 0.],
     [0., 1.],
